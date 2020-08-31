@@ -567,4 +567,4 @@ const fakeUserComments = [
     },
 ]
 
-module.export.fakeUserComments = fakeUserComments
+module.exports.fakeUserComments = fakeUserComments
