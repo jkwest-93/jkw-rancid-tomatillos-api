@@ -10,7 +10,7 @@ app.set('port', process.env.port || 3001);
 app.use(express.json());
 app.use(cors());
 
-// Define the information stored in app.locals - 
+// Define the information stored in app.locals -
 // you can add as many key/value pairs to the app.locals object as you wish!
 app.locals.title = 'Rancid Tomatillos Microservice Server';
 app.locals.encouragement = ["You can do it!", "I believe in you!", "You got this!"];
@@ -60,11 +60,11 @@ app.post('/api/v1/favorites', (request, response) => {
       return response.status(422).json({error: `Cannot POST: missing property ${property} in request.`});
     }
   }
-  
+
   let message;
   const movieId = +request.body.id
   const foundMovieIndex = app.locals.favoriteMovieIds.findIndex(id => id === movieId);
-  
+
   if (foundMovieIndex < 0) {
     app.locals.favoriteMovieIds.push(movieId);
     message = `Movie with an id of ${movieId} was favorited`
@@ -81,4 +81,4 @@ app.get('/api/v1/favorites', (request, response) => {
 })
 
 // Listen for queries to this server
-app.listen(app.get('port'), () => console.log(`${app.locals.title} is now listening on port ${app.get('port')}!`));
+app.listen(process.env.PORT || 3001, () => console.log(`${app.locals.title} is now listening on port ${process.env.PORT || 3001}!`));
