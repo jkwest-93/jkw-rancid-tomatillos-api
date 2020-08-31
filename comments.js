@@ -567,4 +567,4 @@ const fakeUserComments = [
     },
 ]
 
-export default fakeUserComments
+// exports.data = fakeUserComments
