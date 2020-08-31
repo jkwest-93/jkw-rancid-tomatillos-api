@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const fakeUserComments = require('comments')
+const fakeUserComments = require('./comments')
 console.log(fakeUserComments)
 // Designate the port this server will run through
 app.set('port', process.env.port || 3001);
