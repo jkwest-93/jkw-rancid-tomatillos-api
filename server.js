@@ -1,8 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const fakeUserComments = require('./comments')
-
+const fakeUserComments = require('comments')
+console.log(fakeUserComments)
 // Designate the port this server will run through
 app.set('port', process.env.port || 3001);
 
@@ -45,7 +45,7 @@ app.post('/api/v1/movies/:movieId/comments', (request, response) => {
 
 app.get('/api/v1/movies/:movieId/comments', (request, response) => {
   const { movieId } = request.params;
-
+  console.log(app.locals.comments)
   const commentsByMovie = app.locals.comments.filter(comment => comment.movieId === +movieId)
   response.status(200).json({ comments: commentsByMovie });
 })
