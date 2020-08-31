@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+import fakeUserComments from './comments'
 
 // Designate the port this server will run through
 app.set('port', process.env.port || 3001);
@@ -13,7 +14,7 @@ app.use(cors());
 // you can add as many key/value pairs to the app.locals object as you wish!
 app.locals.title = 'Rancid Tomatillos Microservice Server';
 app.locals.encouragement = ["You can do it!", "I believe in you!", "You got this!"];
-app.locals.comments = []
+app.locals.comments = fakeUserComments
 app.locals.favoriteMovieIds = []
 
 // Example GET endpoint
